@@ -16,6 +16,6 @@ public class Main {
 
         pessoa.criarPessoa(nome, idade);
 
-        pessoa.listarPessoas();
+        System.out.println(pessoa.listarPessoas());
     }
 }
