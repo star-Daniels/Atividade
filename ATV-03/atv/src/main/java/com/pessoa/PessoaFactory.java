@@ -1,23 +1,32 @@
 package com.pessoa;
+
 import java.util.ArrayList;
 import java.util.List;
 
 public class PessoaFactory {
 
-    ArrayList<Pessoa> pessoas = new ArrayList<>();
+    List<Pessoa> pessoas = new ArrayList<>();
 
-    public Pessoa criarPessoa(String nome, int idade){
+    public void criarPessoa(String nome, int idade){
+
+        if(pessoas.isEmpty()){
+            Pessoa pessoa = new Pessoa(0, idade, nome);
+            pessoas.add(pessoa);
+
+        } else{
+            int id = pessoas.getLast().getId();
+            id++;
+            Pessoa pessoa = new Pessoa(id, idade, nome);
+            pessoas.add(pessoa);
+
+        }
         
-        int id = pessoas.size();
-
-        Pessoa pessoa = new Pessoa(id, idade, nome);
-        pessoas.add(pessoa);
-        return pessoa;
 
     }
 
     public List<Pessoa> listarPessoas(){
         return pessoas;
     }
+    
 
 }
